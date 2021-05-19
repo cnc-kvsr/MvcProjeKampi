@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İstatistikler</h2>
+<br />
+<body>
+    <div class="row">
+        <div class=" col-md-4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Toplam Kategori Sayısı</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:50px">@ViewBag.totalNumberOfCategories</h5>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Yazılım Kategorisine Ait Başlık Sayısı</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:50px">@ViewBag.totalNumberOfSoftwareHeading</h5>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Adında "a" harfi Geçen Yazar Sayısı</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:50px">@ViewBag.writerNameIncludedA</h5>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">En Fazla Başlığa Sahip Kategori Adı</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:50px">@ViewBag.maxHeadingNumberOfCategory</h5>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">Aktif Durumdaki Kategori Sayısı</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:50px">@ViewBag.numberOfCategoryStatusTrue</h5>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">Pasif Durumdaki Kategori Sayısı</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:50px">@ViewBag.numberOfCategoryStatusFalse</h5>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+

@@ -10,10 +10,11 @@ namespace BusinessLayer.ValidationRules
 {
     public class CategoryValidator : AbstractValidator<Category>
     {
+        //Doğrulama kuralları bir constructor metod içerisine yazılır!
         public CategoryValidator()
         {
             RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Kategori Adını Boş Geçemezsiniz.");
-            RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Açıklamayı Boş Geeçemezsiniz.");
+            RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Açıklamayı Boş Geçemezsiniz.");
             RuleFor(x => x.CategoryName).MinimumLength(3).WithMessage("Lütfen En Az 3 Karakter Girişi Yapın.");
             RuleFor(x => x.CategoryName).MaximumLength(20).WithMessage("Lütfen 20 Karakterden Fazla Değer Girişi Yapmayın");
 

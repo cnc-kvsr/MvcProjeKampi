@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Repositories
 {
-    public class CategoryRepository : ICategoryDal
+    public class CategoryRepository :ICategoryDal
     {
         Context c = new Context();
         DbSet<Category> _object;
@@ -18,6 +18,11 @@ namespace DataAccessLayer.Concrete.Repositories
         {
             _object.Remove(category);
             c.SaveChanges();
+        }
+
+        public Category Get(Expression<Func<Category, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public void Insert(Category category)
