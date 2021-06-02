@@ -43,42 +43,42 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body p-0">
-                            <div class="mailbox-read-info">
-                                <h5>Message Subject Is Placed Here</h5>
-                                <h6>
-                                    From: support@adminlte.io
-                                    <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
-                                </h6>
-                            </div>
-                            <!-- /.mailbox-read-info -->
-                            <div class="mailbox-controls with-border text-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
-                                        <i class="fas fa-reply"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
-                                        <i class="fas fa-share"></i>
+                       
+                            <div class="card-body p-0">
+                                <div class="mailbox-read-info">
+                                    <h5>Konu: @Html.DisplayFor(x=>x.Subject)</h5>
+                                    <br />
+                                    <h6>
+                                        Mail: @Html.DisplayFor(x=>x.UserMail)
+                                        <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
+                                    </h6>
+                                </div>
+                                <!-- /.mailbox-read-info -->
+                                <div class="mailbox-controls with-border text-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
+                                            <i class="fas fa-reply"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.btn-group -->
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
+                                        <i class="fas fa-print"></i>
                                     </button>
                                 </div>
-                                <!-- /.btn-group -->
-                                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
-                                    <i class="fas fa-print"></i>
-                                </button>
+                                <!-- /.mailbox-controls -->
+                                <div class="mailbox-read-message">
+                                    <p>@Html.DisplayFor(x=>x.Message)</p>
+                                    
+                                </div>
+                                <!-- /.mailbox-read-message -->
                             </div>
-                            <!-- /.mailbox-controls -->
-                            <div class="mailbox-read-message">
-                                <p>Hello John,</p>
-                                <p>
-                                    Keffiyeh blog
-                                </p>
-                                <p>Thanks,<br>Jane</p>
-                            </div>
-                            <!-- /.mailbox-read-message -->
-                        </div>
+
                         <!-- /.card-footer -->
                     </div>
                     <!-- /.card -->
@@ -86,7 +86,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-        </div>  
+        </div>
     </section>
 </body>
 </html>
