@@ -38,6 +38,8 @@ namespace MvcProjeKampi.Controllers
             var numberOfSender = _context.Messages.Count(x => x.SenderMail == "admin@gmail.com");
             ViewBag.numberOfSender = numberOfSender;
 
+            var numberOfDraft = _context.Drafts.Count(x => x.SenderMail == "admin@gmail.com");
+            ViewBag.numberOfDraft = numberOfDraft;
 
             return PartialView();
         }
