@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public Draft GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _draftDal.Get(x => x.DraftID == id);
         }
 
         public List<Draft> GetListDraftbox()

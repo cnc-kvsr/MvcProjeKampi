@@ -18,5 +18,10 @@ namespace MvcProjeKampi.Controllers
             return View(draftList);
         }
 
+        public ActionResult GetDraftboxMessageDetails(int id)
+        {
+            var values = draftManager.GetByID(id);
+            return View(values);
+        }
     }
 }
