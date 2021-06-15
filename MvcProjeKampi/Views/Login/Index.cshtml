@@ -1,4 +1,5 @@
-﻿
+﻿@model EntityLayer.Concrete.AdminForLoginAndRegister
+
 @{
     Layout = null;
 }
@@ -31,8 +32,7 @@
                         <div class="img d-flex align-items-center justify-content-center" style="        background-image: url(/AdminLTE-3.0.4/login-form-19/images/bg.jpg);"></div>
                         <h3 class="text-center mb-0">Hoşgeldiniz</h3>
                         <p class="text-center">Lütfen bilgilerinizi kutucuklara giriniz</p>
-                        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
-                        {
+                        <form action="/AdminCategory/Index/" class="login-form" method="post">
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
                                 <input type="text" class="form-control" name="AdminUserName" placeholder="Kullanıcı Adı" required>
@@ -41,6 +41,9 @@
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
                                 <input type="password" class="form-control" name="AdminPassword" placeholder="*******" required>
                             </div>
+
+                            <label class="text-center">@ViewBag.Error</label>
+
                             <div class="form-group d-md-flex">
                                 <div class="w-100 text-md-right">
                                     <a href="#">Şifremi Unuttum</a>
@@ -49,12 +52,13 @@
                             <div class="form-group">
                                 <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
                             </div>
-                        }
+                            }
 
-                        <div class="w-100 text-center mt-4 text">
-                            <p class="mb-0">Don't have an account?</p>
-                            <a href="#">Ana Sayfaya Dön</a>
-                        </div>
+                            <div class="w-100 text-center mt-4 text">
+                                <p class="mb-0">Don't have an account?</p>
+                                <a href="#">Ana Sayfaya Dön</a>
+                            </div>
+                            </form>
                     </div>
                 </div>
             </div>

@@ -1,16 +1,23 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
+   
     public class LoginController : Controller
     {
+        IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()));
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -19,21 +26,25 @@ namespace MvcProjeKampi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Admin admin)
+        public ActionResult Index(AdminForLoginAndRegister adminForLoginAndRegister)
         {
-            Context context = new Context();
-            var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName
-            && x.AdminPassword == admin.AdminPassword);
-            if (adminUserInfo != null)
+            if (authService.Login(adminForLoginAndRegister))
             {
-                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
-                Session["AdminUserName"] = adminUserInfo.AdminUserName;
+                FormsAuthentication.SetAuthCookie(adminForLoginAndRegister.AdminUserName, false);
+                Session["AdminUserName"] = adminForLoginAndRegister.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
             {
-                return RedirectToAction("Index");
+                ViewData["ErrorMessage"] = "Kullanıcı adı veya Parola yanlış";
+                return View();
             }
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
