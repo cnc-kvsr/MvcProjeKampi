@@ -3,6 +3,7 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using EntityLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,12 @@ using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
-   
+    [AllowAnonymous]
     public class LoginController : Controller
     {
-        IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()));
-        // GET: Login
+        AdminManager adminManager = new AdminManager(new EfAdminDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -26,17 +28,17 @@ namespace MvcProjeKampi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(AdminForLoginAndRegister adminForLoginAndRegister)
+        public ActionResult Index(AdminForLoginDto adminForLogin)
         {
-            if (authService.Login(adminForLoginAndRegister))
+            if (adminManager.Login(adminForLogin))
             {
-                FormsAuthentication.SetAuthCookie(adminForLoginAndRegister.AdminUserName, false);
-                Session["AdminUserName"] = adminForLoginAndRegister.AdminUserName;
+                FormsAuthentication.SetAuthCookie(adminForLogin.Email, false);
+                Session["AdminUserName"] = adminForLogin.Email.ToString();
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
             {
-                ViewData["ErrorMessage"] = "Kullanıcı adı veya Parola yanlış";
+                ViewData["ErrorMessage"] = "Kullanıcı adı veya parola yanlış!";
                 return View();
             }
         }

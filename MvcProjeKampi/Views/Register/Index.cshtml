@@ -1,4 +1,4 @@
-﻿@model  EntityLayer.Concrete.AdminForLoginAndRegister
+﻿@model EntityLayer.DTOs.WriterForRegisterDto
 
 @{
     Layout = null;
@@ -37,23 +37,61 @@
                 @using (Html.BeginForm("Index", "Register", FormMethod.Post))
                 {
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="AdminUserName" placeholder="Kullanıcı Adı">
+                        <input type="text" class="form-control" name="WriterName" placeholder="Ad" required="">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
-
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="AdminPassword" placeholder="******">
+                        <input type="text" class="form-control" name="WriterSurName" placeholder="Soyad" required="">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
-
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="WriterMail" placeholder="Mail" required="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="WriterPassword" placeholder="********" required="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="WriterImage" placeholder="Fotoğraf" required="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="WriterAbout" placeholder="Hakkında" required="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="WriterTitle" placeholder="Başlık" required="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12">
@@ -65,8 +103,8 @@
 
 
 
-                    <a href="/Login/Index" class="text-center">I already have a membership</a>
-                </div>
+                <a href="/Login/Index" class="text-center">I already have a membership</a>
+            </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
     </div>

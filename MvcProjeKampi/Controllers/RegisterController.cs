@@ -2,6 +2,7 @@
 using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using EntityLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,7 @@ namespace MvcProjeKampi.Controllers
 {
     public class RegisterController : Controller
     {
-        IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()));
-        // GET: Register
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         [HttpGet]
         public ActionResult Index()
         {
@@ -21,10 +21,10 @@ namespace MvcProjeKampi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(AdminForLoginAndRegister adminForLogin)
+        public ActionResult Index(WriterForRegisterDto writer)
         {
-            authService.Register(adminForLogin.AdminUserName, adminForLogin.AdminPassword);
-            return RedirectToAction("Index", "AdminCategory");
+            writerManager.Register(writer, writer.WriterPassword);
+            return RedirectToAction("Index","Login");
         }
     }
 }

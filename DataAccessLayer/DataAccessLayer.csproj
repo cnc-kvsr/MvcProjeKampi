@@ -128,6 +128,18 @@
     <Compile Include="Migrations\202106140458382_mig_update_admin.designer.cs">
       <DependentUpon>202106140458382_mig_update_admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106150533061_mig_alter_admin.cs" />
+    <Compile Include="Migrations\202106150533061_mig_alter_admin.designer.cs">
+      <DependentUpon>202106150533061_mig_alter_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106160245465_mig_alter_admin1.cs" />
+    <Compile Include="Migrations\202106160245465_mig_alter_admin1.designer.cs">
+      <DependentUpon>202106160245465_mig_alter_admin1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106160456130_mig_alter_writer.cs" />
+    <Compile Include="Migrations\202106160456130_mig_alter_writer.designer.cs">
+      <DependentUpon>202106160456130_mig_alter_writer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +192,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106140458382_mig_update_admin.resx">
       <DependentUpon>202106140458382_mig_update_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106150533061_mig_alter_admin.resx">
+      <DependentUpon>202106150533061_mig_alter_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160245465_mig_alter_admin1.resx">
+      <DependentUpon>202106160245465_mig_alter_admin1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160456130_mig_alter_writer.resx">
+      <DependentUpon>202106160456130_mig_alter_writer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

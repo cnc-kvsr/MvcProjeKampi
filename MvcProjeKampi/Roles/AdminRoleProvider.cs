@@ -41,24 +41,10 @@ namespace MvcProjeKampi.Roles
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string username)
+        public override string[] GetRolesForUser(string userName)
         {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                var userNameHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(username));
-                var user = adminManager.GetList();
-                foreach (var item in user)
-                {
-                    for (int i = 0; i < userNameHash.Length; i++)
-                    {
-                        if (userNameHash[i] == item.AdminUserName[i])
-                        {
-                            return new string[] { item.AdminRole };
-                        }
-                    }
-                }
-                return new string[] { };
-            }
+            var value = adminManager.GetByAdminName(userName);
+            return new string[] { value.AdminRole };
         }
 
         public override string[] GetUsersInRole(string roleName)
