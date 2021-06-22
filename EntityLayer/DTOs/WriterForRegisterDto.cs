@@ -16,7 +16,6 @@ namespace EntityLayer.DTOs
         public string WriterImage { get; set; }
         public string WriterAbout { get; set; }
         public string WriterTitle { get; set; }
-        public string WriterStatus { get; set; }
 
     }
 }

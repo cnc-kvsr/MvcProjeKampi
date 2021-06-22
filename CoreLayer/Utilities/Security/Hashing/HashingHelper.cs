@@ -41,14 +41,14 @@ namespace CoreLayer.Utilities.Security.Hashing
 
             }
         }
-        public static bool VerifyUserNameHash(string mail, byte[] userNameHash, byte[] userNameSalt)
+        public static bool VerifyMailHash(string mail, byte[] mailHash, byte[] mailSalt)
         {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(userNameSalt))
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(mailSalt))
             {
                 var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(mail));
                 for (int i = 0; i < computedHash.Length; i++)
                 {
-                    if (computedHash[i] != userNameHash[i])
+                    if (computedHash[i] != mailHash[i])
                     {
                         return false;
                     }

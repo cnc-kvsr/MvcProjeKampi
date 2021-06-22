@@ -61,6 +61,7 @@
     <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfSkillDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202105230424060_mig_writer_edit.cs" />
     <Compile Include="Migrations\202105230424060_mig_writer_edit.designer.cs">
@@ -140,6 +142,22 @@
     <Compile Include="Migrations\202106160456130_mig_alter_writer.designer.cs">
       <DependentUpon>202106160456130_mig_alter_writer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106170300387_mig_add_message_status.cs" />
+    <Compile Include="Migrations\202106170300387_mig_add_message_status.designer.cs">
+      <DependentUpon>202106170300387_mig_add_message_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106190304431_mig_add_about_status.cs" />
+    <Compile Include="Migrations\202106190304431_mig_add_about_status.designer.cs">
+      <DependentUpon>202106190304431_mig_add_about_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106190520030_mig_add_skill_class.cs" />
+    <Compile Include="Migrations\202106190520030_mig_add_skill_class.designer.cs">
+      <DependentUpon>202106190520030_mig_add_skill_class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106190524117_mig_alter_skill.cs" />
+    <Compile Include="Migrations\202106190524117_mig_alter_skill.designer.cs">
+      <DependentUpon>202106190524117_mig_alter_skill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,6 +219,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106160456130_mig_alter_writer.resx">
       <DependentUpon>202106160456130_mig_alter_writer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106170300387_mig_add_message_status.resx">
+      <DependentUpon>202106170300387_mig_add_message_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106190304431_mig_add_about_status.resx">
+      <DependentUpon>202106190304431_mig_add_about_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106190520030_mig_add_skill_class.resx">
+      <DependentUpon>202106190520030_mig_add_skill_class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106190524117_mig_alter_skill.resx">
+      <DependentUpon>202106190524117_mig_alter_skill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

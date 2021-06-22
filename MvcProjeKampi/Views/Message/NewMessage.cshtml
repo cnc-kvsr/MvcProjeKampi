@@ -22,6 +22,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -32,12 +33,7 @@
                 <div class="col-sm-6">
                     <h1>Yeni Mesaj Sayfası</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Compose</li>
-                    </ol>
-                </div>
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -70,9 +66,8 @@
                                 </div>
                                 <div class="form-group">
                                     @Html.Label("Mesajınız")
-                                    <textarea 
-                                              id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px">
-                                    </textarea>
+                                    <textarea id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px"></textarea>
+                                    @Html.ValidationMessageFor(m => m.MessageContent, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <div class="btn btn-default btn-file">
@@ -85,8 +80,8 @@
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet</button>
-                                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                                    <button type="submit" name="button" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet</button>
+                                    <button type="submit" formmethod="post" name="button" value="post" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
                                 </div>
                                 <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal Et</button>
                             </div>

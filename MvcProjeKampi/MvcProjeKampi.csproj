@@ -145,6 +145,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
@@ -2172,6 +2173,7 @@
     <Content Include="AdminLTE-3.0.4\summernote-0.8.18-dist\summernote.min.js.LICENSE.txt" />
     <Content Include="AdminLTE-3.0.4\web\css\style.css" />
     <Content Include="AdminLTE-3.0.4\web\images\5.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\d1e46d37cf764dd51b541057ab4b52c2.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\img1.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\sprite.png" />
     <Content Include="AdminLTE-3.0.4\web\index.html" />
@@ -2615,6 +2617,8 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\About\AddAbout.cshtml" />
+    <Content Include="Views\Skill\SkillCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

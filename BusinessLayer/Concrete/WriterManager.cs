@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete
             {
                 return false;
             }
-            if (HashingHelper.VerifyPasswordHash(writer.Password,writerToCheck.WriterPasswordHash,writerToCheck.WriterPasswordSalt))
+            if (!HashingHelper.VerifyPasswordHash(writer.Password,writerToCheck.WriterPasswordHash,writerToCheck.WriterPasswordSalt))
             {
                 return false;
             }

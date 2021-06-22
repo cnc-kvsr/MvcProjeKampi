@@ -32,7 +32,6 @@ namespace DataAccessLayer.Concrete.Repositories
         {
             return _object.SingleOrDefault(filter);
         }
-
         public void Insert(T entity)
         {
             var addedEntity = c.Entry(entity);

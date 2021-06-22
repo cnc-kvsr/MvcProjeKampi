@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewBag.Title = "AddAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımızda Yeni Yazı Girişi</h2>
+<br />
+@using (Html.BeginForm("AddAbout", "About", FormMethod.Post))
+{
+    <form method="post" action="/About/AddAbout/">
+        <div class="modal-body">
+            <label>Hakkımda Metin 1</label>
+            <input type="text" name="AboutDetails1" class="form-control" />
+            <br />
+            <label>Hakkımda Metin 2</label>
+            <input type="text" name="AboutDetails2" class="form-control" />
+            <br />
+            <label>Hakkımda Görsel 1</label>
+            <input type="text" name="AboutImage1" class="form-control" />
+            <br />
+            <label>Hakkımda Görsel 2</label>
+            <input type="text" name="AboutImage2" class="form-control" />
+            <br />
+            <button class="btn badge-info">Kaydet</button>
+        </div>
+    </form>
+
+}
+

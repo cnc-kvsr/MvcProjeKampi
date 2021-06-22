@@ -52,11 +52,13 @@ namespace BusinessLayer.Concrete
             {
                 return false;
             }
+
             if (!HashingHelper.VerifyPasswordHash(admin.Password,adminToCheck.AdminPasswordHash,adminToCheck.AdminPasswordSalt)&&
-                !HashingHelper.VerifyUserNameHash(admin.Email,adminToCheck.AdminUserNameHash,adminToCheck.AdminUserNameSalt))
+                !HashingHelper.VerifyMailHash(admin.Email,adminToCheck.AdminUserNameHash,adminToCheck.AdminUserNameSalt))
             {
                 return false;
             }
+
             return true;
         }
 
@@ -64,7 +66,7 @@ namespace BusinessLayer.Concrete
         {
             byte[] passwordHash, passwordSalt, mailHash, mailSalt;
             HashingHelper.CreateMailHash(adminRegister.Email,out mailHash,out mailSalt);
-            HashingHelper.CreatePasswordHash(adminRegister.Password,out passwordHash,out passwordSalt);
+            HashingHelper.CreatePasswordHash(password,out passwordHash,out passwordSalt);
 
             var admin = new Admin
             {

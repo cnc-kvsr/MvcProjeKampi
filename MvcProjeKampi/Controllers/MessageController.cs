@@ -16,11 +16,13 @@ namespace MvcProjeKampi.Controllers
         // GET: Message
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
+        DraftController draftController = new DraftController();
 
-        [Authorize]
         public ActionResult Inbox()
         {
             var messageList = messageManager.GetListInbox();
+            var count = messageManager.GetListStatusFalse().Where(x => x.ReceiverMail == "admin@gmail.com").Count();
+            ViewBag.count = count;
             return View(messageList);
         }
 
@@ -33,6 +35,8 @@ namespace MvcProjeKampi.Controllers
         public ActionResult GetInboxMessageDetails(int id)
         {
             var values = messageManager.GetByID(id);
+            values.MessageStatus = true;
+            messageManager.MessageUpdate(values);
             return View(values);
         }
 
@@ -48,25 +52,71 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult NewMessage(Message message)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult NewMessage(Message message, string button)
         {
             ValidationResult results = messageValidator.Validate(message);
-            if (results.IsValid)
+            if (button == "draft")
             {
-                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                messageManager.MessageAdd(message);
-                return RedirectToAction("Sendbox");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
+                if (results.IsValid)
                 {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    Draft draft = new Draft();
+                    draft.SenderMail = message.SenderMail;
+                    draft.Subject = message.Subject;
+                    draft.DraftContent = message.MessageContent;
+                    draft.DraftDate = DateTime.Parse(DateTime.Now.ToLongDateString());
+                    draftController.AddDraft(draft);
+                    return RedirectToAction("Draft", "Draft");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+            }
+            if (button=="post")
+            {
+                if (results.IsValid)
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    messageManager.MessageAdd(message);
+                    return RedirectToAction("Sendbox");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
                 }
             }
             return View();
         }
+
+        //public ActionResult IsRead(int id)
+        //{
+        //    var message = messageManager.GetByID(id);
+        //    if (message.MessageStatus==false)
+        //    {
+        //        message.MessageStatus = true;
+        //    }
+        //    messageManager.MessageUpdate(message);
+        //    return RedirectToAction("ReadMessage");
+        //}
+
+        //public ActionResult ReadMessage()
+        //{
+        //    var readMessage = messageManager.GetListInbox().Where(x => x.MessageStatus == true).ToList();
+        //    return View(readMessage);
+        //}
+        //public ActionResult UnreadMessage()
+        //{
+        //    var unreadMessage = messageManager.GetListInbox().Where(x => x.MessageStatus == false);
+        //    return View(unreadMessage);
+        //}
 
     }
 }
