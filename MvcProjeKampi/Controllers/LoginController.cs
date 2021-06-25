@@ -30,11 +30,36 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult Index(AdminForLoginDto adminForLogin)
         {
+           
             if (adminManager.Login(adminForLogin))
             {
                 FormsAuthentication.SetAuthCookie(adminForLogin.Email, false);
                 Session["AdminUserName"] = adminForLogin.Email.ToString();
                 return RedirectToAction("Index", "AdminCategory");
+            }
+            else
+            {
+                ViewData["ErrorMessage"] = "Kullanıcı adı veya parola yanlış!";
+                return View();
+            }
+        }
+
+       
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(WriterForLoginDto writer)
+        {
+            if (writerManager.Login(writer))
+            {
+                FormsAuthentication.SetAuthCookie(writer.Email, false);
+                Session["WriterMail"] = writer.Email.ToString();
+                return RedirectToAction("MyContent", "WriterPanelContent");
             }
             else
             {

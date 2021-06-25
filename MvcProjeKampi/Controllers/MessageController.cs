@@ -13,7 +13,7 @@ namespace MvcProjeKampi.Controllers
 {
     public class MessageController : Controller
     {
-        // GET: Message
+        
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
         DraftController draftController = new DraftController();
@@ -21,7 +21,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult Inbox()
         {
             var messageList = messageManager.GetListInbox();
-            var count = messageManager.GetListStatusFalse().Where(x => x.ReceiverMail == "admin@gmail.com").Count();
+            var count = messageManager.GetListStatusFalse().Where(x => x.ReceiverMail == "gizem@hotmail.com").Count();
             ViewBag.count = count;
             return View(messageList);
         }
@@ -80,7 +80,7 @@ namespace MvcProjeKampi.Controllers
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "admin@gmail.com";
+                    message.SenderMail = "gizem@hotmail.com";
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.MessageAdd(message);
                     return RedirectToAction("Sendbox");
